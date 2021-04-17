@@ -1,6 +1,6 @@
-import PanningScrollView from '@moistbobo/react-native-panning-scrollview'
 import React from 'react'
 import { Text } from 'react-native'
+import PanningScrollView from 'react-native-panning-scrollview'
 
 const App = () => {
   return (
