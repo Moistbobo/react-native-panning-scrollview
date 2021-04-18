@@ -22,8 +22,11 @@ jobs:
            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
            chmod +x ./cc-test-reporter
            ./cc-test-reporter before-build
-           yarn run compile
+           yarn run test
            ./cc-test-reporter --coverage-input-type clover after-build --exit-code $?
+      - run:
+          name: Compile typescript
+          command: yarn run compile
 
 workflows:
   node-tests:
