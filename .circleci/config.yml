@@ -3,18 +3,30 @@ orbs:
   rn: react-native-community/react-native@5.1.0
 
 jobs:
-  test-and-build:
+  checkout_code:
     executor: rn/linux_js
     steps:
       - checkout
+      - persist_to_workspace:
+          root: .
+          paths: .
+  test-and-build:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
       - run:
-          name: test and build
-          command: |
-            yarn
-            yarn run test
-            yarn run compile
+          name: Jest
+          command: yarn jest
+      - run:
+          name: Compile
+          command: yarn run compile
 
 workflows:
   node-tests:
     jobs:
-      - test-and-build
+      - checkout_code
+      - test-and-build:
+          requires:
+            - checkout_code
