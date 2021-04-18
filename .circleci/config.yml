@@ -1,0 +1,34 @@
+version: 2.1
+orbs:
+  rn: react-native-community/react-native@5.1.0
+
+jobs:
+  checkout_code:
+    executor: rn/linux_js
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: .
+          paths: .
+  test-and-build:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
+      - run:
+          name: Test and report code coverage
+          command: |
+           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+           chmod +x ./cc-test-reporter
+           ./cc-test-reporter before-build
+           yarn run compile
+           ./cc-test-reporter --coverage-input-type clover after-build --exit-code $?
+
+workflows:
+  node-tests:
+    jobs:
+      - checkout_code
+      - test-and-build:
+          requires:
+            - checkout_code
