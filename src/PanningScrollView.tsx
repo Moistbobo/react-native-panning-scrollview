@@ -12,7 +12,7 @@ const IMG_HEIGHT = 200;
 const FAKE_BORDER_HEIGHT = 30;
 
 type Props = {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode | React.ReactNodeArray;
   headerImage?: ImageSourcePropType;
   badgeImage?: ImageSourcePropType;
   translateRatio?: number;
@@ -73,12 +73,15 @@ const PanningScrollView = ({
             testID={'image-header'}
           />
         ) : (
-          <View style={styles.headerImage} testID={'view-header-placeholder'}/>
+          <View style={styles.headerImage} testID={'view-header-placeholder'} />
         )}
         {badgeImage ? (
-          <Animated.View style={[styles.badgeContainer, animatedBadgeStyles]}
-          >
-            <Image source={badgeImage} style={styles.badgeImage} testID={'image-badge'}/>
+          <Animated.View style={[styles.badgeContainer, animatedBadgeStyles]}>
+            <Image
+              source={badgeImage}
+              style={styles.badgeImage}
+              testID={'image-badge'}
+            />
           </Animated.View>
         ) : undefined}
         <View style={styles.fakeBorder} />
