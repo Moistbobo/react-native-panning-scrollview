@@ -16,6 +16,7 @@ type Props = {
   headerImage?: ImageSourcePropType;
   badgeImage?: ImageSourcePropType;
   translateRatio?: number;
+  useNativeDriver?: boolean;
 };
 
 const PanningScrollView = ({
@@ -23,6 +24,7 @@ const PanningScrollView = ({
   badgeImage,
   children,
   translateRatio = 3,
+  useNativeDriver = true,
 }: Props) => {
   const yOffset = React.useRef(new Animated.Value(0)).current;
 
@@ -58,7 +60,7 @@ const PanningScrollView = ({
 
   const onScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { y: yOffset } } }],
-    { useNativeDriver: true }
+    { useNativeDriver }
   );
 
   return (
@@ -68,13 +70,15 @@ const PanningScrollView = ({
           <Animated.Image
             style={[styles.headerImage, animatedHeaderImageStyles]}
             source={headerImage}
+            testID={'image-header'}
           />
         ) : (
-          <View style={styles.headerImage} />
+          <View style={styles.headerImage} testID={'view-header-placeholder'}/>
         )}
         {badgeImage ? (
-          <Animated.View style={[styles.badgeContainer, animatedBadgeStyles]}>
-            <Image source={badgeImage} style={styles.badgeImage} />
+          <Animated.View style={[styles.badgeContainer, animatedBadgeStyles]}
+          >
+            <Image source={badgeImage} style={styles.badgeImage} testID={'image-badge'}/>
           </Animated.View>
         ) : undefined}
         <View style={styles.fakeBorder} />
