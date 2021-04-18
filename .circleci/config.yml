@@ -23,7 +23,7 @@ jobs:
            chmod +x ./cc-test-reporter
            ./cc-test-reporter before-build
            yarn run test
-           ./cc-test-reporter --coverage-input-type clover after-build --exit-code $?
+           ./cc-test-reporter --coverage-input-type lcov after-build --exit-code $?
       - run:
           name: Compile typescript
           command: yarn run compile
