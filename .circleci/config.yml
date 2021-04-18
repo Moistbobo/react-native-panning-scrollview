@@ -6,6 +6,7 @@ jobs:
   test-and-build:
     executor: rn/linux_js
     steps:
+      - checkout
       - run:
           name: test and build
           command: |
@@ -16,5 +17,4 @@ jobs:
 workflows:
   node-tests:
     jobs:
-      - checkout
       - test-and-build
