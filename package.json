@@ -31,6 +31,11 @@
     "prepare": "yarn compile",
     "test": "jest --coverage"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint . --fix"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/runtime": "^7.13.10",
@@ -50,7 +55,9 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-native": "^3.10.0",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
     "metro-react-native-babel-preset": "^0.65.2",
     "react": "^17.0.2",
     "react-native": "^0.64.0",
