@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'sort-imports': 0, // sorts imports alphabetically but does not auto fix. disabled as import order may matter for some modules
     'no-unused-vars': 0, // disabled in favor of typescript rule @typescript-eslint/no-unused-vars
-    'react/jsx-filename-extension': [1, {extensions: ['.jsx', '.tsx']}], // only allow jsx in .jsx and .tsx files
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }], // only allow jsx in .jsx and .tsx files
     'no-underscore-dangle': 0, // disabled as it may sometimes be necessary to use _ to denote scoped variabled
     'no-extra-semi': 0, // allow extra semicolon at the end of a statement
     semi: 0, // allow extra semicolon at the end of a statement
@@ -34,7 +34,7 @@ module.exports = {
     'import/no-commonjs': 0, // interferes with asset imports
     'react-native/no-unused-styles': 'error', // assist with cleaning up unused styles
     'getter-return': 0, // legacy code uses getters. Remove this rule if code is refactored
-    'import/no-extraneous-dependencies': ['error', {devDependencies: true}], // conflicts with storybook addons
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }], // conflicts with storybook addons
     'no-multiple-empty-lines': [
       'error',
       {
@@ -121,4 +121,4 @@ module.exports = {
       },
     },
   },
-};
+}

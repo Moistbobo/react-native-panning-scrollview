@@ -1,5 +1,5 @@
 # react-native-panning-scrollview
-[![CircleCI](https://circleci.com/gh/Moistbobo/react-native-panning-scrollview.svg?style=shield)](https://github.com/Moistbobo/react-native-panning-scrollview)
+[![CircleCI](https://circleci.com/gh/Moistbobo/react-native-panning-scrollview.svg?style=shield)](https://app.circleci.com/pipelines/github/Moistbobo/react-native-panning-scrollview)
 ![David](https://status.david-dm.org/gh/moistbobo/react-native-panning-scrollview.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b7d9f0954f5814711b4/maintainability)](https://codeclimate.com/github/Moistbobo/react-native-panning-scrollview/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0b7d9f0954f5814711b4/test_coverage)](https://codeclimate.com/github/Moistbobo/react-native-panning-scrollview/test_coverage)
