@@ -1,6 +1,6 @@
 {
   "name": "react-native-panning-scrollview",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A ScrollView component that only scrolls after the header has been pushed up.",
   "homepage": "https://github.com/Moistbobo/react-native-panning-scrollview",
   "main": "lib/index.js",
