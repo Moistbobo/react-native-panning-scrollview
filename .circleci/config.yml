@@ -16,4 +16,5 @@ jobs:
 workflows:
   node-tests:
     jobs:
+      - checkout
       - test-and-build
