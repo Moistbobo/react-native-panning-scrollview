@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   Animated,
+  ColorValue,
   Image,
   ImageSourcePropType,
   StyleSheet,
@@ -15,6 +16,7 @@ type Props = {
   children: React.ReactNode | React.ReactNodeArray;
   headerImage?: ImageSourcePropType;
   badgeImage?: ImageSourcePropType;
+  backgroundColor?: ColorValue;
   translateRatio?: number;
   useNativeDriver?: boolean;
 };
@@ -25,6 +27,7 @@ const PanningScrollView = ({
   children,
   translateRatio = 3,
   useNativeDriver = true,
+  backgroundColor = 'white',
 }: Props) => {
   const yOffset = React.useRef(new Animated.Value(0)).current;
 
@@ -84,16 +87,19 @@ const PanningScrollView = ({
             />
           </Animated.View>
         ) : undefined}
-        <View style={styles.fakeBorder} />
+        <View style={[styles.fakeBorder, { backgroundColor }]} />
       </Animated.View>
 
       <Animated.ScrollView
         onScroll={onScroll}
         scrollEventThrottle={1}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainerStyle}
+        contentContainerStyle={[
+          styles.contentContainerStyle,
+          { backgroundColor },
+        ]}
       >
-        <View style={styles.placeholder} />
+        <View style={[styles.placeholder]} />
         {children}
       </Animated.ScrollView>
     </View>
@@ -109,12 +115,12 @@ const styles = StyleSheet.create({
     top: 0,
     width: '100%',
     resizeMode: 'cover',
-    zIndex: 2,
+    zIndex: 1,
   },
   headerImage: {
     height: IMG_HEIGHT,
     resizeMode: 'cover',
-    zIndex: 2,
+    backgroundColor: 'white',
   },
   contentContainerStyle: {
     backgroundColor: 'white',
@@ -126,8 +132,8 @@ const styles = StyleSheet.create({
     zIndex: 2,
     top: -FAKE_BORDER_HEIGHT / 2,
     backgroundColor: 'white',
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
   },
   badgeContainer: {
     position: 'absolute',

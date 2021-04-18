@@ -18,6 +18,11 @@ A ScrollView component that moves along with the header section, and only scroll
 | badgeImage          | `ImageSourcePropType` |       Optional.   The badge image. The component will automatically apply border radius and enforce a size.           
 | translateRatio | `number` | Optional. Affect the rate that the header translates. Higher values = shorter translate distance. Defaults to `3`. Recommended `1 - 5`
 |useNativeDriver |  `boolean` | Optional. Control whether to use nativeDriver. For compatibility. Defaults to `true`
+|backgroundColor | `ColorValue` | Optional. Change the color of the scrollview container.|
+
+## How it works
+This component uses a scrollview and some `Animated` trickery to create the illusion of a scrollview that only scrolls after the header has been panned upwards.
+
 
 ## Demo
 1. Clone this repo
