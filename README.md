@@ -6,6 +6,10 @@
 [![npm](https://img.shields.io/npm/v/react-native-panning-scrollview?color=dark%20green)](https://www.npmjs.com/package/react-native-panning-scrollview)
 ![license](https://img.shields.io/github/license/Moistbobo/react-native-panning-scrollview)
 
+## DEPRECARTED
+This has been rewritten using reanimated 2.
+See https://github.com/Moistbobo/rn-playground/tree/develop/src/features/Reanimated/pages/MoxLikeScrollView 
+
 A ScrollView component that moves along with the header section, and only scrolls after the header has been pushed up
 
 ![](https://i.imgur.com/RejLzBD.gif)
